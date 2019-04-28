@@ -1,0 +1,7 @@
+{
+  "name": "universal-address",
+  "alias": "universal-address",
+  "env": {
+    "NODE_ENV": "production"
+  }
+}
