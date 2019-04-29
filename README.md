@@ -21,7 +21,7 @@ Sadly, in the world what we are living we have many disasters and problems aroun
 
 ## Value proposition
 
-Maybe you are wondering: *"What's the value proposition of this project? If I am in a situation that I don't have an address I can share my gps location"*. Well you can share your location whereas the applicaction has the feature to share it. But let's see some xamples.
+Maybe you are wondering: *"What's the value proposition of this project? If I am in a situation that I don't have an address I can share my gps location"*. Well you can share your location whereas the applicaction has the feature to share it. But let's see some examples.
 
 Let's suppose followings situations and we are going to tell you how our iniciative is trying to solve every case:
 * Places with weak GPS signal: if you are in place that GPS does not work well, although you can share your location, it is useless. Our project, based an UA can translate it to exact location on a map, and you can get it as an image or a link to google maps
