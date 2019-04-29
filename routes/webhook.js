@@ -1,11 +1,12 @@
 const express = require('express');
+const config = require('config');
 const router = express.Router();
 const logger = require('winston-this')('webhook-route');
 const facebook = require('../services/facebook');
 const W3WService = require('../services/What3Words');
+const AddressesService = require('../services/Addresses');
 
 const userAddresses = {};
-const savedAddress = {};
 
 router.post('/webhook', (req, res) => {
   let body = req.body;
@@ -49,22 +50,25 @@ router.post('/webhook', (req, res) => {
             const long = location.coordinates.long;
 
             W3WService.get3WordsFromCords(lat, long).then(word => {
-              if (savedAddress[word] === undefined) {
-                savedAddress[word] = [];
-              }
+              const firstWord = word.split('.')[0];
 
-              savedAddress[word].push(senderId);
+              AddressesService.haveAddress(senderId).then(userHaveAddress => {
+                if (userHaveAddress) {
+                  facebook.sendMessage(senderId, `You already have and address and it is ${userHaveAddress}`);
+                  return;
+                }
 
-              userAddresses[senderId] = {
-                geo: {
-                  lat: lat,
-                  long: long,
-                },
-                three_words: word,
-                address: `${word.split('.')[0]} ${savedAddress[word].length}`,
-              };
+                return facebook.getUserById(senderId).then(userData => {
+                  const realAddress = `${firstWord} NUMBER`;
 
-              facebook.sendMessage(senderId, `This is your address: ${userAddresses[senderId].address}`);
+                  // Adding an address
+                  return AddressesService.addAddress(userData, lat, long, word, realAddress);
+                });
+              }).then((userAddress) => {
+                facebook.sendMessage(senderId, `This is your address: ${userAddress}`);
+              }).catch(() => {
+                facebook.sendMessage(senderId, 'An error ocurr, please try it again');
+              });
             });
           }
         }

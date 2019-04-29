@@ -7,10 +7,6 @@
   "mongo": {
     "host": "localhost",
     "port": 27017,
-    "database": "help-in-need"
-  },
-  "facebook": {
-    "access_token": "EAAGXZCavb3fMBALI93doy1CCD9IygPGubqAgJWFnYjq0x5c8IofKAiDnZCIbdy87L1HZAaOZBf1qL9qJ5dyhpf4epUrWvrYr7FrZCGCh1CYmGsGZCJTaaAdeFFzG0psqjtDQ7rZAcdJx8orzImw9jDhLr20jmWtY7FeHLo8xb8K8kJv7ZBsefZCFYlk9UT4xd6hIZD",
-    "page_access_token": "EAAGXZCavb3fMBAKZAP0piZBVDy6BRJtWBrXGp1R5DPCwzNkuzHDRNKYVASDOlAHBrwUKNR4C8VcHdQsb1ssfJYHBnWZAyhRj1Yhg27hYG6HDRYUr2LA0MpNGNx2AUL9lpw4Lxu6e7tvdaKOpXko8bIWnfGVRZAHIubEeP6bl5lAZDZD"
+    "database": "universal-address"
   }
 }

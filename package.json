@@ -9,6 +9,7 @@
     "config": "^3.1.0",
     "express": "^4.16.4",
     "fb": "^2.0.0",
+    "mongodb": "^3.2.3",
     "winston-this": "^1.0.3"
   },
   "devDependencies": {},

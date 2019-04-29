@@ -1,8 +1,8 @@
 {
   "port": 8080,
   "mongo": {
-    "host": "ds227352.mlab.com",
-    "port": 27352,
-    "database": "help-in-need"
+    "host": "ds249737.mlab.com",
+    "port": 49737,
+    "database": "universal-address"
   }
 }
