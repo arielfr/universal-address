@@ -1,13 +1,38 @@
 const express = require('express');
 const router = express.Router();
-const W3WService = require('../services/What3Words');
+const AddressService = require('../services/Addresses');
 
-router.post('/ua/generate', (req, res) => {
-  const { lat, long } = req.body;
+router.get('/ua/search', (req, res) => {
+  const {
+    address,
+    three_words,
+  } = req.query;
 
-  W3WService.get3WordsFromCords(lat, long).then((words) => {
+  logger.info(`Finding address for search address=${address}`);
+
+  let PromiseToResolve;
+
+  if (address) {
+    PromiseToResolve = AddressService.guessAddressFromText(address);
+  } else if (three_words) {
+    PromiseToResolve = AddressService.guessAddressFromW3W(address);
+  } else {
+    res.status(400).send({
+      message: 'Bad Request. You need to send and address or three_words',
+    });
+  }
+
+  PromiseToResolve.then((add) => {
+    if (Object.keys(add).length === 0) {
+      res.status(404).send({
+        message: 'Not Found',
+      });
+    }
+
     res.send({
-      address: words,
+      geo: add.geo,
+      three_words: add.three_words,
+      address: add.address,
     });
   });
 });

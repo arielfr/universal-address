@@ -156,6 +156,35 @@ class Addresses {
       });
     });
   }
+
+  guessAddressFromW3W(w3w) {
+    return new Promise((resolve, reject) => {
+      MongoDB.connect().then(({ client, db }) => {
+        logger.info(`Looking for w3w ${w3w}`);
+
+        const collection = db.collection(Addresses.COLLECTION_NAME);
+
+        collection.findOne({
+          three_words: w3w.trim().toLowerCase()
+        }).then((res) => {
+          if (res === null) {
+            logger.info(`Address NOT found ${w3w}`);
+            return resolve({});
+          }
+
+          logger.info(`Address found ${w3w}`);
+
+          resolve(res);
+        }).catch(err => {
+          logger.error(`An error ocurr checking the next number: ${err}`);
+
+          MongoDB.close(client);
+
+          reject('An error ocurr');
+        });
+      });
+    });
+  }
 }
 
 module.exports = new Addresses();

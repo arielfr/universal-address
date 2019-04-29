@@ -80,7 +80,7 @@ router.post('/webhook', (req, res) => {
             const addressToMatch = fbMessage.text.toLowerCase();
 
             // Get the static image address
-            AddressesService.guessAddressFromText(addressToMatch).then(res => {
+            AddressesService.guessAddressFromW3W(addressToMatch).then(res => {
               if (Object.keys(res).length > 0) {
                 const staticMap = MapQuestService.getStaticMapUrl({
                   current: {
