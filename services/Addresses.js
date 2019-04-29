@@ -1,5 +1,6 @@
 const logger = require('winston-this')('addresses-service');
 const MongoDB = require('../database/MongoDB');
+const MapQuestService = require('../services/MapQuest');
 
 /**
  * This class is going to store the users locations
@@ -9,15 +10,6 @@ class Addresses {
     return 'addresses';
   }
 
-  /**
-   * Add and address to the database
-   * @param userData
-   * @param data
-   * @param lat
-   * @param long
-   * @param threeWords
-   * @param realAddress
-   */
   addAddress(userData, lat, long, threeWords, firstWord, realAddress) {
     return new Promise((resolve, reject) => {
       logger.info(`Adding the address for ${userData.id} and the location is ${realAddress}`);
@@ -96,13 +88,48 @@ class Addresses {
         collection.find({
           first_word: firstWord
         }).count().then((count) => {
-          logger.info(count);
-
           const nextNumber = count + 1;
 
           logger.info(`Count for word ${firstWord} is ${nextNumber}`);
 
           resolve(nextNumber);
+        }).catch(err => {
+          logger.error(`An error ocurr checking the next number: ${err}`);
+
+          MongoDB.close(client);
+
+          reject('An error ocurr');
+        });
+      });
+    });
+  }
+
+  getAddressImage(address) {
+    return new Promise((resolve, reject) => {
+      MongoDB.connect().then(({ client, db }) => {
+        logger.info(`Looking for address ${address}`);
+
+        const collection = db.collection(Addresses.COLLECTION_NAME);
+
+        collection.findOne({
+          address: address.trim().toLowerCase()
+        }).then((res) => {
+          console.log(res);
+          if (res === null) {
+            logger.info(`Address NOT found ${address}`);
+            return resolve('');
+          }
+
+          logger.info(`Address found ${address}`);
+
+          const staticMap = MapQuestService.getStaticMapUrl({
+            current: {
+              lat: res.geo.lat,
+              long: res.geo.long,
+            }
+          });
+
+          resolve(staticMap);
         }).catch(err => {
           logger.error(`An error ocurr checking the next number: ${err}`);
 

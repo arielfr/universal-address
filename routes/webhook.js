@@ -6,8 +6,6 @@ const facebook = require('../services/facebook');
 const W3WService = require('../services/What3Words');
 const AddressesService = require('../services/Addresses');
 
-const userAddresses = {};
-
 router.post('/webhook', (req, res) => {
   let body = req.body;
 
@@ -85,6 +83,16 @@ router.post('/webhook', (req, res) => {
     // Returns a '404 Not Found' if event is not from a page subscription
     res.sendStatus(404);
   }
+});
+
+
+router.get('/test', (req, res) => {
+  const address = req.query.address;
+  AddressesService.getAddressImage(address).then(image => {
+    res.send({
+      image: image,
+    });
+  });
 });
 
 /**
