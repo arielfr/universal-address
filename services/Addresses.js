@@ -18,7 +18,7 @@ class Addresses {
    * @param threeWords
    * @param realAddress
    */
-  addAddress(userData, lat, long, threeWords, realAddress) {
+  addAddress(userData, lat, long, threeWords, firstWord, realAddress) {
     return new Promise((resolve, reject) => {
       logger.info(`Adding the address for ${userData.id} and the location is ${realAddress}`);
 
@@ -31,6 +31,7 @@ class Addresses {
             long: long,
           },
           three_words: threeWords,
+          first_word: firstWord,
           address: realAddress,
         };
 
@@ -69,9 +70,7 @@ class Addresses {
         const collection = db.collection(Addresses.COLLECTION_NAME);
 
         collection.findOne({
-          user: {
-            id: userId,
-          },
+          "user.id": userId,
         }).then((res) => {
           if (res === null) {
             return resolve('');
@@ -80,6 +79,32 @@ class Addresses {
           resolve(res.address);
         }).catch(err => {
           logger.error(`An error ocurr checking if user ${userId} has an UA: ${err}`);
+
+          MongoDB.close(client);
+
+          reject('An error ocurr');
+        });
+      });
+    });
+  }
+
+  getAddressCount(firstWord) {
+    return new Promise((resolve, reject) => {
+      MongoDB.connect().then(({ client, db }) => {
+        const collection = db.collection(Addresses.COLLECTION_NAME);
+
+        collection.find({
+          first_word: firstWord
+        }).count().then((count) => {
+          logger.info(count);
+
+          const nextNumber = count + 1;
+
+          logger.info(`Count for word ${firstWord} is ${nextNumber}`);
+
+          resolve(nextNumber);
+        }).catch(err => {
+          logger.error(`An error ocurr checking the next number: ${err}`);
 
           MongoDB.close(client);
 

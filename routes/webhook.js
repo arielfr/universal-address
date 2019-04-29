@@ -31,16 +31,18 @@ router.post('/webhook', (req, res) => {
           // Mark message as seen
           facebook.sendAction(senderId, facebook.available_actions.MARK_AS_READ);
 
-          if (userAddresses[senderId] !== undefined) {
-            setTimeout(() => {
-              facebook.sendMessage(senderId, `You have and address already and it is: ${userAddresses[senderId].address}`)
-            }, 250);
-          } else {
-            // Send the Quick Reply for location
-            setTimeout(() => {
-              facebook.quickReplyLocation(senderId, 'Generate My Location');
-            }, 250);
-          }
+          AddressesService.haveAddress(senderId).then(userAd => {
+            if (userAd) {
+              setTimeout(() => {
+                facebook.sendMessage(senderId, `You already have and address and it is ${userAd}`);
+              }, 250);
+            } else {
+              // Send the Quick Reply for location
+              setTimeout(() => {
+                facebook.quickReplyLocation(senderId, 'Generate My Location');
+              }, 250);
+            }
+          });
         } else if (fbMessage.attachments) {
           const attachment = fbMessage.attachments[0];
 
@@ -52,17 +54,19 @@ router.post('/webhook', (req, res) => {
             W3WService.get3WordsFromCords(lat, long).then(word => {
               const firstWord = word.split('.')[0];
 
-              AddressesService.haveAddress(senderId).then(userHaveAddress => {
-                if (userHaveAddress) {
-                  facebook.sendMessage(senderId, `You already have and address and it is ${userHaveAddress}`);
+              AddressesService.haveAddress(senderId).then(userAd => {
+                if (userAd) {
+                  facebook.sendMessage(senderId, `You already have and address and it is ${userAd}`);
                   return;
                 }
 
+                return AddressesService.getAddressCount(firstWord);
+              }).then((addressNumber) => {
                 return facebook.getUserById(senderId).then(userData => {
-                  const realAddress = `${firstWord} NUMBER`;
+                  const realAddress = `${firstWord} ${addressNumber}`;
 
                   // Adding an address
-                  return AddressesService.addAddress(userData, lat, long, word, realAddress);
+                  return AddressesService.addAddress(userData, lat, long, word, firstWord, realAddress);
                 });
               }).then((userAddress) => {
                 facebook.sendMessage(senderId, `This is your address: ${userAddress}`);
