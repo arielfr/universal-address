@@ -148,7 +148,7 @@ router.post('/webhook', (req, res) => {
 
               AddressesService.getAddressByUserId(senderId).then(userAd => {
                 if (userAd) {
-                  facebook.sendMessage(senderId, `Your Universal Address is ${userAddress}`);
+                  facebook.sendMessage(senderId, `Your Universal Address is *${userAd}*`);
                   sendUniversalGoodbyeMessage(senderId);
                   facebook.sendAction(senderId, facebook.available_actions.END_TYPING);
                   return;
@@ -163,7 +163,7 @@ router.post('/webhook', (req, res) => {
                   return AddressesService.addAddress(userData, lat, long, word, firstWord, realAddress);
                 });
               }).then((userAddress) => {
-                facebook.sendMessage(senderId, `Your Universal Address is ${userAddress}`);
+                facebook.sendMessage(senderId, `Your Universal Address is *${userAddress}*`);
                 sendUniversalGoodbyeMessage(senderId);
                 facebook.sendAction(senderId, facebook.available_actions.END_TYPING);
               }).catch(() => {
