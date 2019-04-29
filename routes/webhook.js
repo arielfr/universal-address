@@ -17,7 +17,10 @@ const QUICK_REPLY_PAYLOADS = {
 
 const sendUniversalGoodbyeMessage = (senderId) => {
   facebook.sendMessage(senderId, 'Remember that your UA is unique. Talk to me again if you want to know what is your UA or where is located any UA you have.');
-  facebook.sendMessage(senderId, 'Thanks for using Universal Address');
+  setTimeout(() => {
+    facebook.sendMessage(senderId, 'Thanks for using Universal Address');
+  }, 250)
+
 };
 
 router.post('/webhook', (req, res) => {
