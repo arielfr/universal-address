@@ -2,7 +2,7 @@ const config = require('config');
 const logger = require('winston-this')('facebook');
 const fb = require('fb');
 const request = require('request');
-const FileUtil = require('../utils/File');
+// const FileUtil = require('../utils/File');
 const isProduction = (process.env.NODE_ENV === 'production');
 const { FB_TOKEN_MESSENGER, FB_TOKEN_PAGE } = process.env;
 
@@ -249,6 +249,7 @@ module.exports = {
    * @param type
    * @returns {Promise}
    */
+  /*
   uploadFile: (attachmentPath, type = this.valid_attachment_types.GENERIC_FILE) => {
     return new Promise((resolve, reject) => {
       FB.api('me/message_attachments', 'post', {
@@ -273,6 +274,7 @@ module.exports = {
       });
     })
   },
+  */
   /**
    * Upload file from URL
    * @param url
