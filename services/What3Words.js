@@ -13,6 +13,12 @@ class W3W {
     });
   }
 
+  /**
+   * Get W3W address using latitude and longitude
+   * @param lat
+   * @param long
+   * @returns {PromiseLike<T | never> | Promise<T | never>}
+   */
   get3WordsFromCords(lat, long){
     logger.info(`Creating UA for lat ${lat} - long: ${long}`);
 

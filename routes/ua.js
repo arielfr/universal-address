@@ -4,6 +4,35 @@ const logger = require('winston-this')('ua-route');
 const AddressService = require('../services/Addresses');
 
 /**
+ * Search by address
+ */
+router.get('/ua/address/search', (req, res) => {
+  const {
+    q,
+  } = req.query;
+
+  logger.info(`Finding address for search address=${q}`);
+
+  AddressService.guessAddressFromText(q).then((add) => {
+    if (Object.keys(add).length === 0) {
+      res.status(404).send({
+        status: 'Not Found',
+        message: 'Address not found',
+      });
+    }
+
+    res.send({
+      geo: {
+        lat: add.loc.coordinates[1],
+        long: add.loc.coordinates[0],
+      },
+      w3w: add.three_words,
+      address: add.address,
+    });
+  });
+});
+
+/**
  * Search by geo location
  */
 router.get('/ua/geo/search', (req, res) => {
@@ -38,35 +67,6 @@ router.get('/ua/geo/search', (req, res) => {
     }
 
     res.send(results);
-  });
-});
-
-/**
- * Search by address
- */
-router.get('/ua/address/search', (req, res) => {
-  const {
-    q,
-  } = req.query;
-
-  logger.info(`Finding address for search address=${q}`);
-
-  AddressService.guessAddressFromText(q).then((add) => {
-    if (Object.keys(add).length === 0) {
-      res.status(404).send({
-        status: 'Not Found',
-        message: 'Address not found',
-      });
-    }
-
-    res.send({
-      geo: {
-        lat: add.loc.coordinates[1],
-        long: add.loc.coordinates[0],
-      },
-      w3w: add.three_words,
-      address: add.address,
-    });
   });
 });
 

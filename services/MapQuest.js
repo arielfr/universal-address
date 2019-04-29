@@ -6,6 +6,14 @@ class MapQuest {
     this.baseUrl = 'https://open.mapquestapi.com';
   }
 
+  /**
+   * Get static map URL from parameters
+   * @param current
+   * @param locations
+   * @param height
+   * @param width
+   * @returns {string}
+   */
   getStaticMapUrl({ current = {}, locations = [], height = 600, width = 400 }) {
     let url = '';
     let pois = '';

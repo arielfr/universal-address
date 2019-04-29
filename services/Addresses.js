@@ -14,10 +14,6 @@ class Addresses {
     return 3959;
   }
 
-  static get MIN_RADIUS_METERS() {
-    return 50;
-  }
-
   static get SEARCH_RADIUS_METERS() {
     return 5000;
   }
@@ -91,10 +87,26 @@ class Addresses {
     });
   }
 
+  /**
+   * Get Google Map link
+   * @param lat
+   * @param long
+   * @returns {string}
+   */
   getGoogleMapLink(lat, long) {
     return `http://www.google.com/maps/place/${lat},${long}`;
   }
 
+  /**
+   * Add address to the database
+   * @param userData
+   * @param lat
+   * @param long
+   * @param threeWords
+   * @param firstWord
+   * @param realAddress
+   * @returns {Promise<any>}
+   */
   addAddress(userData, lat, long, threeWords, firstWord, realAddress) {
     return new Promise((resolve, reject) => {
       logger.info(`Adding the address for ${userData.id} and the location is ${realAddress}`);
@@ -137,6 +149,11 @@ class Addresses {
     });
   }
 
+  /**
+   * Get Address by facebook user id
+   * @param userId
+   * @returns {Promise<any>}
+   */
   getAddressByUserId(userId) {
     return new Promise((resolve, reject) => {
       MongoDB.connect().then(({ client, db }) => {
@@ -161,6 +178,11 @@ class Addresses {
     });
   }
 
+  /**
+   * Get google map link using the perma id
+   * @param id
+   * @returns {Promise<any>}
+   */
   getGoogleMapLinkByPermaId(id) {
     return new Promise((resolve, reject) => {
       MongoDB.connect().then(({ client, db }) => {
@@ -185,6 +207,11 @@ class Addresses {
     });
   }
 
+  /**
+   * Get the count of how many people live on your block
+   * @param firstWord
+   * @returns {Promise<any>}
+   */
   getAddressCount(firstWord) {
     return new Promise((resolve, reject) => {
       MongoDB.connect().then(({ client, db }) => {
@@ -209,6 +236,11 @@ class Addresses {
     });
   }
 
+  /**
+   * Guess the address using text
+   * @param address
+   * @returns {Promise<any>}
+   */
   guessAddressFromText(address) {
     return new Promise((resolve, reject) => {
       MongoDB.connect().then(({ client, db }) => {
@@ -238,6 +270,11 @@ class Addresses {
     });
   }
 
+  /**
+   * Find addresses that match the W3W
+   * @param w3w
+   * @returns {Promise<any>}
+   */
   findAddressesFromW3W(w3w) {
     return new Promise((resolve, reject) => {
       MongoDB.connect().then(({ client, db }) => {
