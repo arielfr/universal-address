@@ -10,6 +10,7 @@
     "express": "^4.16.4",
     "fb": "^2.0.0",
     "mongodb": "^3.2.3",
+    "perma": "^2.0.1",
     "winston-this": "^1.0.3"
   },
   "devDependencies": {},
