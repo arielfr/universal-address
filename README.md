@@ -25,7 +25,7 @@ Maybe you are wondering: *"What's the value proposition of this project? If I am
 
 Let's suppose followings situations and we are going to tell you how our iniciative is trying to solve every case:
 * Places with weak GPS signal: if you are in place that GPS does not work well, although you can share your location, it is useless. Our project, based an UA can translate it to exact location on a map, and you can get it as an image or a link to google maps
-* Suppling packages (medicines, food or clothes) by overland transport to a refugees´s camp: let's suppose here that we have printed papers with instructions for the truck driver to ship our packages to the camp. Refugees's camps usually don't have a real address, but we can use an UA. We know that the drivers need the exact location of the camp, so it is possible to use our application to know that location based on an UA adresss. 
+* Suppling packages (medicines, food or clothes) by overland transport to a refugees's camp: let's suppose here that we have printed papers with instructions for the truck driver to ship our packages to the camp. Refugees's camps usually don't have a real address, but we can use an UA. We know that the drivers need the exact location of the camp, so it is possible to use our application to know that location based on an UA adresss. 
 
 
 
