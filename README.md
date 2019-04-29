@@ -23,14 +23,23 @@ Sadly, in the world what we are living we have many disasters and problems aroun
 
 Maybe you are wondering: *"What's the value proposition of this project? If I am in a situation that I don't have an address I can share my gps location"*. Well you can share your location whereas the applicaction has the feature to share it. But let's see some examples.
 
-Let's suppose followings situations and we are going to tell you how our iniciative is trying to solve every case:
+Let's suppose the followings situations and we are going to say how our iniciative is trying to solve every case:
 * Places with weak GPS signal: if you are in place that GPS does not work well, although you can share your location, it is useless. Our project, based an UA can translate it to exact location on a map, and you can get it as an image or a link to google maps
 * Suppling packages (medicines, food or clothes) by overland transport to a refugees's camp: let's suppose here that we have printed papers with instructions for the truck driver to ship our packages to the camp. Refugees's camps usually don't have a real address, but we can use an UA. We know that the drivers need the exact location of the camp, so it is possible to use our application to know that location based on an UA adresss. 
-
-
+* Working with snail mail: as we know, in this case the postman needs a regular address but we also can use an UA. Using our services (our chat bot or API), the postman would know what is the location of an UA. That gives the posibility to deliver packages to people who does not have an real address.
+* Applying for a job: in many countries (Argentina for example), you must have an address to apply for a job. So with our project, everyone who do not have an address will be able to have a unique address and in that way, they will be able to apply for any job.
 
 ## What it does
-TBD
+
+As we were saying, our goal is *"addressing the world"*. It is definitely a hard work, but we wanted to make it simpler using Facebook tools. That's the reason we created a Bot for Facebook Messenger. We introduced a concept called "universal address" (UA) which it means, a way to express a specific locaction with human language (currently only in english). An UA has always the same structure, a word and a number, for example: *Apple 124*. What is really important here, and the key difference between the existing project "[what 3 words](https://what3words.com)" is that we generate an **unique address** per user.
+
+The bot basically has two features, you can ask for your UA or you can get information about another UA. If you ask for your UA and it is not created yet, the bot will invite you to create one. 
+
+To use it all you have to do is open *Facebook Messenger* and search for "Universal Address". Once a conversation is started, you will be able to choose:
+
+* What's your UA?
+* Get UA geolocation
+* Help (it will explain you how to use the bot)
 
 ## How we built it
 This application was created using **NodeJS**. These are the main packages that we are using:
@@ -55,6 +64,10 @@ Based on our research and the great project [what3words](https://what3words.com/
 Thanks to our multicultural team, we had the opportunity to know other kind of problems which are happening in the world and how to solve them with tech solutions.
 
 ## What's next for Universal Address
+
+Some features we would like to add:
+* Given some location, and considering some distance radius, we could show all the people who have an UA in that radius on a map
+* Given a 3 word adderss, we could show all the people who have an UA in that portion of the planet.
 
 ## Install
 
