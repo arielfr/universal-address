@@ -99,14 +99,6 @@ To run a MongoDB locally we encourage to use Docker:
 docker run --name mongo -p 27017:27017 -d mongo
 ```
 
-### Hosts
-
-If you wan't to run the "main" page locally, you need to add the next entry on `/etc/hosts`:
-
-```bash
-127.0.0.1           XXXXXXXXX.com
-```
-
 #### Start (Production)
 
 ```bash
@@ -128,7 +120,7 @@ This application is currently deployed on a Zeit ([now.sh](http://now.sh)). It a
 If you want to deploy it, you just need to execute:
 
 ```bash
-now
+now --public -e FB_TOKEN_MESSENGER="XXX" -e FB_TOKEN_PAGE="XXX" -e MONGO_USER="XXXX" -e MONGO_PASSWORD="XXXX" -e MAPQUEST_KEY="XXXX" && now alias
 ```
 
 You can find it currently here:
