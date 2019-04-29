@@ -10,6 +10,87 @@ class Addresses {
     return 'addresses';
   }
 
+  static get EARTH_RADIUS_IN_MILES () {
+    return 3959;
+  }
+
+  static get MIN_RADIUS_METERS() {
+    return 50;
+  }
+
+  static get SEARCH_RADIUS_METERS() {
+    return 5000;
+  }
+
+  /**
+   * Miles to Meters Converter
+   * @param meters
+   * @returns {number}
+   */
+  metersToMiles(meters) {
+    return meters * 0.000621371;
+  }
+
+  /**
+   * Get a MongoDB query for searching within a geo location point
+   * @param lat
+   * @param long
+   * @param distance
+   * @returns {{$geoWithin: {$centerSphere: *[]}}}
+   */
+  getGeoWithinQuery({ lat, long, distance }) {
+    return {
+      $geoWithin : {
+        $centerSphere : [
+          [
+            lat,
+            long
+          ],
+          (this.metersToMiles(distance) / Addresses.EARTH_RADIUS_IN_MILES)
+        ]
+      }
+    }
+  }
+
+  /**
+   * Retrieve all the near locations
+   * @param lat
+   * @param long
+   * @returns {Promise<any>}
+   */
+  getNearLocations({ lat, long }) {
+    return new Promise((resolve) => {
+      MongoDB.connect().then(({ client, db }) => {
+        const collection = db.collection(Addresses.COLLECTION_NAME);
+
+        collection.find({
+          loc: {
+            $near :
+              {
+                $geometry:
+                  {
+                    type: "Point",  coordinates: [Number(lat),  Number(long) ]
+                  },
+                $minDistance: 0,
+                $maxDistance: Addresses.SEARCH_RADIUS_METERS,
+              }
+          }
+        }).toArray((err, res) => {
+          MongoDB.close(client);
+
+          if (res === null) {
+            logger.error(`Can't find any locations for Lat = ${lat} / Long = ${long}`);
+            return resolve([]);
+          }
+
+          logger.info(`Getting the locations near: Lat = ${lat} / Long = ${long}. Found ${res.length}`);
+
+          resolve(res);
+        })
+      });
+    });
+  }
+
   getGoogleMapLink(lat, long) {
     return `http://www.google.com/maps/place/${lat},${long}`;
   }
@@ -22,9 +103,9 @@ class Addresses {
         const collection = db.collection(Addresses.COLLECTION_NAME);
 
         const data = {
-          geo: {
-            lat: lat,
-            long: long,
+          loc: {
+            type: 'Point',
+            coordinates: [long, lat]
           },
           three_words: threeWords,
           first_word: firstWord,
@@ -92,7 +173,7 @@ class Addresses {
             return resolve('');
           }
 
-          resolve(this.getGoogleMapLink(res.geo.lat, res.geo.long));
+          resolve(this.getGoogleMapLink(res.loc.coordinates[1], res.loc.coordinates[0]));
         }).catch(err => {
           logger.error(`An error ocurr checking if user ${id} has an UA: ${err}`);
 
@@ -157,31 +238,27 @@ class Addresses {
     });
   }
 
-  guessAddressFromW3W(w3w) {
+  findAddressesFromW3W(w3w) {
     return new Promise((resolve, reject) => {
       MongoDB.connect().then(({ client, db }) => {
         logger.info(`Looking for w3w ${w3w}`);
 
         const collection = db.collection(Addresses.COLLECTION_NAME);
 
-        collection.findOne({
+        collection.find({
           three_words: w3w.trim().toLowerCase()
-        }).then((res) => {
+        }).toArray((err, res) => {
+          MongoDB.close(client);
+
           if (res === null) {
             logger.info(`Address NOT found ${w3w}`);
-            return resolve({});
+            return resolve([]);
           }
 
           logger.info(`Address found ${w3w}`);
 
           resolve(res);
-        }).catch(err => {
-          logger.error(`An error ocurr checking the next number: ${err}`);
-
-          MongoDB.close(client);
-
-          reject('An error ocurr');
-        });
+        })
       });
     });
   }
