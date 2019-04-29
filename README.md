@@ -2,6 +2,17 @@
 
 Giving solutions to addressing the world
 
+# Content
+
+ 1. [Inspiration](#Inspiration)
+ 2. [What it does](#What-it-does)
+ 3. [How we built it](#How-we-built-it)
+ 4. [Challenges we ran into](#Challenges-we-ran-into)
+ 5. [Accomplishments that we're proud of](#Accomplishments-that-we're-proud-of)
+ 6. ...
+ 7. ...
+ 8. [Install](#Install)
+
 ## Inspiration
 
 Sadly, in the world what we are living we have many disasters and problems around the world. For instance, disasters like floods, earthquakes, wars, and so many others, force people to evacuate their homes. In that situations, people and organtizations around the world want to help sending medicines, food, clothes, and other things, but, what is the 'address' of those people? In many situations, they do not have an address, and that simple problem is actually a big problem. That's only an example, but there are many others example, like people living in Africa who don't have any address.
@@ -34,3 +45,75 @@ Based on our research and the great project [what3words](https://what3words.com/
 Thanks to our multicultural team, we had the opportunity to know of other kind of problems which are happening in the world and how to solve them with tech solutions.
 
 ## What's next for Universal Address
+
+## Install
+
+### Application
+
+Just clone the repository and type in a console:
+
+```bash
+npm install
+```
+
+Done!
+
+### Database
+
+To run a MongoDB locally we encourage to use Docker:
+
+```bash
+docker run --name mongo -p 27017:27017 -d mongo
+```
+
+### Hosts
+
+If you wan't to run the "main" page locally, you need to add the next entry on `/etc/hosts`:
+
+```bash
+127.0.0.1           XXXXXXXXX.com
+```
+
+#### Start (Production)
+
+```bash
+npm start
+```
+
+#### Start (Development)
+
+If you start the application this way, you are not going to be posting messages on Facebook
+
+```bash
+npm start-dev
+```
+
+## Deployment
+
+This application is currently deployed on a Zeit ([now.sh](http://now.sh)). It already have the configurations on `now.json` file.
+
+If you want to deploy it, you just need to execute:
+
+```bash
+now
+```
+
+You can find it currently here:
+
+[https://universal-address.now.sh](https://universal-address.now.sh)
+
+## Database
+
+We are currently using mLab to host the database. mLab is a free solution.
+
+- [mLab](https://mlab.com/)
+
+## License
+
+Released under the terms of the MIT license.
+
+# About
+
+- [Ariel Rey](https://github.com/arielfr/)
+- [Horacio Lopez](https://github.com/hdlopez/)
+- [Daeyeol Ryu](https://github.com/yoobato/)
