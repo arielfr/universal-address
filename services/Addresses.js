@@ -138,7 +138,6 @@ class Addresses {
         collection.findOne({
           address: address.trim().toLowerCase()
         }).then((res) => {
-          console.log(res);
           if (res === null) {
             logger.info(`Address NOT found ${address}`);
             return resolve({});

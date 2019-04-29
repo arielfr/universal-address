@@ -16,13 +16,8 @@ const QUICK_REPLY_PAYLOADS = {
 };
 
 const sendUniversalGoodbyeMessage = (senderId) => {
-  facebook.sendMessage(senderId, 'Remember that your UA is unique. Talk to me again if you want to know what is your UA or where is located any UA you have.');
-  setTimeout(() => {
-    facebook.sendMessage(senderId, 'Thanks for using Universal Address');
-  }, 250)
-
+  facebook.sendMessage(senderId, `Talk to me again if you want to know what is your UA or where is located any UA you have. Thanks for using Universal Address.`);
 };
-
 router.post('/webhook', (req, res) => {
   let body = req.body;
 
@@ -51,7 +46,7 @@ router.post('/webhook', (req, res) => {
             AddressesService.getAddressByUserId(senderId).then(userAd => {
               if (userAd) {
                 setTimeout(() => {
-                  facebook.sendMessage(senderId, `Your Universal Address is ${userAd}`);
+                  facebook.sendMessage(senderId, `Your Universal Address is ${userAd}. Remember that your UA is unique`);
                 }, 150);
 
                 setTimeout(() => {
@@ -104,7 +99,7 @@ router.post('/webhook', (req, res) => {
                       setTimeout(() => {
                         sendUniversalGoodbyeMessage(senderId);
                         facebook.sendAction(senderId, facebook.available_actions.END_TYPING);
-                      }, 150);
+                      }, 350);
                     }, 150);
                   });
                 });
@@ -148,7 +143,7 @@ router.post('/webhook', (req, res) => {
 
               AddressesService.getAddressByUserId(senderId).then(userAd => {
                 if (userAd) {
-                  facebook.sendMessage(senderId, `Your Universal Address is *${userAd}*`);
+                  facebook.sendMessage(senderId, `Your Universal Address is ${userAd}. Remember that your UA is unique.`);
                   sendUniversalGoodbyeMessage(senderId);
                   facebook.sendAction(senderId, facebook.available_actions.END_TYPING);
                   return;
@@ -163,11 +158,11 @@ router.post('/webhook', (req, res) => {
                   return AddressesService.addAddress(userData, lat, long, word, firstWord, realAddress);
                 });
               }).then((userAddress) => {
-                facebook.sendMessage(senderId, `Your Universal Address is *${userAddress}*`);
+                facebook.sendMessage(senderId, `Your Universal Address is ${userAddress}. Remember that your UA is unique.`);
                 sendUniversalGoodbyeMessage(senderId);
                 facebook.sendAction(senderId, facebook.available_actions.END_TYPING);
               }).catch(() => {
-                facebook.sendMessage(senderId, 'An error ocurr, please try it again');
+                facebook.sendMessage(senderId, 'An error ocurr, please try it again later');
                 facebook.sendAction(senderId, facebook.available_actions.END_TYPING);
               });
             });
