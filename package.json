@@ -11,7 +11,9 @@
     "fb": "^2.0.0",
     "mongodb": "^3.2.3",
     "perma": "^2.0.1",
-    "winston-this": "^1.0.3"
+    "swagger-ui-express": "^4.0.2",
+    "winston-this": "^1.0.3",
+    "yamljs": "^0.3.0"
   },
   "devDependencies": {},
   "scripts": {

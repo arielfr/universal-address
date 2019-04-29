@@ -1,3 +1,7 @@
+/**
+ * TODO: You need to add this code on the database so you can query with GEO Location
+ * db.addresses.createIndex({loc:"2dsphere"});
+ */
 const config = require('config');
 const { MongoClient } = require('mongodb');
 const { MONGO_USER, MONGO_PASSWORD } = process.env;

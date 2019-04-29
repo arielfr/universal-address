@@ -1,0 +1,223 @@
+---
+openapi: '3.0.0'
+info:
+  description: 'Universal Language Public API'
+  version: 1.0.0
+  title: Universal Language
+  # termsOfService: http://swagger.io/terms/
+host: https://universal-address.now.sh
+basePath: "/"
+tags:
+- name: ua
+  description: Main endpoint
+- name: ping
+  description: Health status
+schemes:
+- https
+paths:
+  /ua/address/search:
+    get:
+      tags:
+      - ua
+      summary: Get the address based on a text search
+      description: Get all the addresses matching a text address
+      operationId: search-address
+      produces:
+      - application/json
+      parameters:
+      - name: q
+        in: query
+        description: Text to find
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                schema:
+                  $ref: "#/components/schemas/Address"
+                example:
+                  geo:
+                    type: object
+                    $ref: "#/components/schemas/AddressGeo"
+                  example:
+                    lat: -126.01238
+                    long: 37.12398
+                  w3w: lunch.night.dinner
+                  address: lunch 123
+
+        '400':
+          description: Invalid status value
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+              example:
+                status: 400
+                message: amount is null
+    /ping:
+      get:
+        tags:
+        - ping
+        summary: Ping
+        description: This operation is used to get the status of the api
+        operationId: ping
+        responses:
+          '200':
+            description: pong
+            schema:
+              type: string
+  /ua/geo/serch:
+    get:
+      tags:
+      - ua
+      summary: Search address through geo locations
+      description: Get all the address near a geo location point
+      operationId: search-geo
+      produces:
+      - application/json
+      parameters:
+      - name: lat
+        in: query
+        description: Latitude
+        required: true
+        schema:
+          type: string
+      - name: long
+        in: query
+        description: Longitude
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  schema:
+                    $ref: "#/components/schemas/Address"
+                  example:
+                    geo:
+                      type: object
+                      $ref: "#/components/schemas/AddressGeo"
+                    example:
+                      lat: -126.01238
+                      long: 37.12398
+                    w3w: lunch.night.dinner
+                    address: lunch 123
+
+        '400':
+          description: Invalid status value
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+              example:
+                status: 400
+                message: amount is null
+  /ua/w3w/search:
+    get:
+      tags:
+      - ua
+      summary: Search by What3Words standard
+      description: Get all the addresses matching a text address
+      operationId: search-w3w
+      produces:
+      - application/json
+      parameters:
+      - name: q
+        in: query
+        description: Text to find
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  schema:
+                    $ref: "#/components/schemas/Address"
+                  example:
+                    geo:
+                      type: object
+                      $ref: "#/components/schemas/AddressGeo"
+                    example:
+                      lat: -126.01238
+                      long: 37.12398
+                    w3w: lunch.night.dinner
+                    address: lunch 123
+
+        '400':
+          description: Invalid status value
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+              example:
+                status: 400
+                message: amount is null
+    /ping:
+      get:
+        tags:
+        - ping
+        summary: Ping
+        description: This operation is used to get the status of the api
+        operationId: ping
+        responses:
+          '200':
+            description: pong
+            schema:
+              type: string
+  /ping:
+    get:
+      tags:
+      - ping
+      summary: Ping
+      description: This operation is used to get the status of the api
+      operationId: ping
+      responses:
+        '200':
+          description: pong
+          schema:
+            type: string
+
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        status:
+          type: integer
+        message:
+          type: string
+    AddressGeo:
+      properties:
+        geo:
+          type: object
+          properties:
+            lat:
+              type: string
+            long:
+              type: string
+    Address:
+      allOf:
+      - $ref: '#/components/schemas/AddressGeo'
+      - type: object
+        properties:
+          w3w:
+            type: string
+          address:
+            type: string

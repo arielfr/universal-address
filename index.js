@@ -5,26 +5,32 @@ const bodyParser = require('body-parser');
 const logger = require('winston-this')('index');
 const port = process.env.PORT || config.get('port');
 const environment = process.env.NODE_ENV;
+const swaggerUi = require('swagger-ui-express');
+const YAML = require('yamljs');
+
+// Get the Swagger document
+const swaggerDocument = YAML.load('./docs/swagger.yaml');
 
 logger.info(`NODE_ENV: ${environment}`);
 
 // Express Application initialization
 const app = express();
 
-// Add Handlebars view engine
-// viewEngine(app);
-
 // Adding body-parser
 app.use(bodyParser.json());
 
-/*
-app.use(express.static(__dirname + '/public'));
-*/
-
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use(require('./routes/ping'));
 app.use(require('./routes/ua'));
 app.use(require('./routes/webhook'));
 app.use(require('./routes/redirect'));
+
+/**
+ * The home is the documentation for the API using Swagger
+ */
+app.use('/', (req, res, next) => {
+  res.redirect('/docs');
+});
 
 app.use((err, req, res, next) => {
   logger.error(err);
