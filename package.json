@@ -1,0 +1,29 @@
+{
+  "name": "universal-address",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.19.0",
+    "config": "^3.1.0",
+    "express": "^4.16.4",
+    "winston-this": "^1.0.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "NODE_ENV=production node index.js",
+    "start-dev": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arielfr/universal-address.git"
+  },
+  "author": "Ariel Rey",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/arielfr/universal-address/issues"
+  },
+  "homepage": "https://github.com/arielfr/universal-address#readme"
+}
