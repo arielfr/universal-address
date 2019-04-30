@@ -173,12 +173,12 @@ We are currently using mLab to host the database. mLab is a free solution.
 
 Released under the terms of the [MIT license](LICENSE.md).
 
-# References
+## References
 
 1. [Addressing the world paper](http://www.upu.int/fileadmin/documentsFiles/activities/addressingAssistance/whitePaperAddressingTheWorldEn.pdf), Universal Postal Union
 2. [What 3 Words project](https://what3words.com/about)
 
-# About Us
+## About Us
 
 - [Ariel Rey](https://github.com/arielfr/)
 - [Horacio Lopez](https://github.com/hdlopez/)
