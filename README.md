@@ -7,6 +7,8 @@ Giving solutions to addressing the world
  1. [Inspiration](#Inspiration)
  2. [Value proposition](#Value-proposition)
  3. [What it does](#What-it-does)
+    1. [About our Messenger Bot](#About-our-messenger-Bot)
+    2. [About our API](#About-our-api)
  4. [How we built it](#How-we-built-it)
  5. [Challenges we ran into](#Challenges-we-ran-into)
  6. [Accomplishments that we're proud of](#Accomplishments-that-we're-proud-of)
@@ -32,6 +34,8 @@ Let's suppose the followings situations and we are going to say how our iniciati
 As we were saying, our goal is *"addressing the world"*. It is definitely a hard work, but we wanted to make it simpler using Facebook tools. That's the reason we created a Bot for Facebook Messenger. We introduced a concept called "universal address" (UA) which it means, a way to express a specific locaction with human language (currently only in english). An UA has always the same structure, a word and a number, for example: *Apple 124*. What is really important here, and the key difference between the existing project "[what 3 words](https://what3words.com)" is that we generate an **unique address** per user.
 
 <img src="https://raw.githubusercontent.com/arielfr/universal-address/master/docs/screens/0_introduce.PNG" width="350">
+
+### About our Messenger Bot
 
 The bot basically has two features, you can ask for your UA or you can get information about another UA. If you ask for your UA and it is not created yet, the bot will invite you to create one. To use it, all you have to do is open *Facebook Messenger* and search for "Universal Address". Once a conversation is started, you will be able to choose:
 
@@ -74,6 +78,8 @@ That's it! You have the exact location on a map and a link to google maps
 <img src="https://raw.githubusercontent.com/arielfr/universal-address/master/docs/screens/3_3_get_location.PNG" width="350">
 
 <img src="https://raw.githubusercontent.com/arielfr/universal-address/master/docs/screens/3_4_google_map_link.PNG" width="350">
+
+### About our API
 
 ## How we built it
 
