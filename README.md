@@ -38,7 +38,7 @@ As we said, our goal is *"addressing the world"*. It was definitely a hard work,
 
 ### About our Messenger Bot
 
-The bot basically has two features. First, you can ask for your UA. Also you can get a geolocation information about any UA. If you ask for your UA and you don't have one yet, the bot will invite you to create one. To use this, all you have to do is just open *Facebook Messenger* and search for "Universal Address". Once a conversation is started, you'll get a quick replies:
+The bot basically has two features: ask for your UA and get the UA location. If you ask for your UA and you don't have one yet, the bot will invite you to create one. To use this, all you have to do is just open *Facebook Messenger* and search for "Universal Address". Once a conversation is started, you'll get a quick replies:
 
 * What's my UA?
 * Get UA geolocation
