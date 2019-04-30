@@ -31,7 +31,7 @@ Let's suppose the followings situations and we are going to say how our iniciati
 
 As we were saying, our goal is *"addressing the world"*. It is definitely a hard work, but we wanted to make it simpler using Facebook tools. That's the reason we created a Bot for Facebook Messenger. We introduced a concept called "universal address" (UA) which it means, a way to express a specific locaction with human language (currently only in english). An UA has always the same structure, a word and a number, for example: *Apple 124*. What is really important here, and the key difference between the existing project "[what 3 words](https://what3words.com)" is that we generate an **unique address** per user.
 
-<img src="https://raw.githubusercontent.com/arielfr/universal-address/docs/docs/screens/0_introduce.PNG" width="350">
+<img src="https://raw.githubusercontent.com/arielfr/universal-address/master/docs/screens/0_introduce.PNG" width="350">
 
 The bot basically has two features, you can ask for your UA or you can get information about another UA. If you ask for your UA and it is not created yet, the bot will invite you to create one. To use it, all you have to do is open *Facebook Messenger* and search for "Universal Address". Once a conversation is started, you will be able to choose:
 
@@ -39,41 +39,41 @@ The bot basically has two features, you can ask for your UA or you can get infor
 * Get UA geolocation
 * Help (it will explain you how to use the bot)
 
-<img src="https://raw.githubusercontent.com/arielfr/universal-address/docs/docs/screens/1_1_greeting.PNG" width="350">
+<img src="https://raw.githubusercontent.com/arielfr/universal-address/master/docs/screens/1_1_greeting.PNG" width="350">
 
 ## Option: What's my UA?
 
 In case you don't have an UA yet, once you choose this option, you will see a button (Send Location) to share where you living location
 
-<img src="https://raw.githubusercontent.com/arielfr/universal-address/docs/docs/screens/1_2_generate_ua.PNG" width="350">
+<img src="https://raw.githubusercontent.com/arielfr/universal-address/master/docs/screens/1_2_generate_ua.PNG" width="350">
 
 You can search for the locaction by address or drag a waypoint on map.
 
-<img src="https://raw.githubusercontent.com/arielfr/universal-address/docs/docs/screens/1_3_pick_location.PNG" width="350">
+<img src="https://raw.githubusercontent.com/arielfr/universal-address/master/docs/screens/1_3_pick_location.PNG" width="350">
 
 And that's it! You already have an UA for your user.
 
-<img src="https://raw.githubusercontent.com/arielfr/universal-address/docs/docs/screens/1_4_get_ua.PNG" width="350">
+<img src="https://raw.githubusercontent.com/arielfr/universal-address/master/docs/screens/1_4_get_ua.PNG" width="350">
 
 When you choose "What's my UA?" and you already have an UA, the bot will show you the details of your address
 
-<img src="https://raw.githubusercontent.com/arielfr/universal-address/docs/docs/screens/2_get_ua_again.PNG" width="350">
+<img src="https://raw.githubusercontent.com/arielfr/universal-address/master/docs/screens/2_get_ua_again.PNG" width="350">
 
 ## Option: Get UA geolocation
 
 When the options appear, you can choose the option *Get UA geolocation*. This option allows you to get the UA exact location and the bot will show you that location on a map.
 
-<img src="https://raw.githubusercontent.com/arielfr/universal-address/docs/docs/screens/3_1_greeting.PNG" width="350">
+<img src="https://raw.githubusercontent.com/arielfr/universal-address/master/docs/screens/3_1_greeting.PNG" width="350">
 
 Just type the UA and bot will provide you an image with the exact location and a link to google maps
 
-<img src="https://raw.githubusercontent.com/arielfr/universal-address/docs/docs/screens/3_2_get_ua_location.PNG" width="350">
+<img src="https://raw.githubusercontent.com/arielfr/universal-address/master/docs/screens/3_2_get_ua_location.PNG" width="350">
 
 That's it! You have the exact location on a map and a link to google maps
 
-<img src="https://raw.githubusercontent.com/arielfr/universal-address/docs/docs/screens/3_3_get_location.PNG" width="350">
+<img src="https://raw.githubusercontent.com/arielfr/universal-address/master/docs/screens/3_3_get_location.PNG" width="350">
 
-<img src="https://raw.githubusercontent.com/arielfr/universal-address/docs/docs/screens/3_4_google_map_link.PNG" width="350">
+<img src="https://raw.githubusercontent.com/arielfr/universal-address/master/docs/screens/3_4_google_map_link.PNG" width="350">
 
 ## How we built it
 
