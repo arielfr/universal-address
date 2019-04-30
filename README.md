@@ -13,31 +13,32 @@ Giving solutions to addressing the world
  5. [Challenges we ran into](#Challenges-we-ran-into)
  6. [Accomplishments that we're proud of](#Accomplishments-that-we're-proud-of)
  7. [What we learned](#What-we-learned)
- 8. [Install](#Install)
+  8. [Next steps for Universal Address](#Next-steps-for-Universal-Address)
+  9. [Install](#Install)
 
 ## Inspiration
 
-The United Nation estimates that 4 billion people lack a reliable way to address their homes. They struggle to open bank accounts, register a birth or access electricity or water supplies, becoming invisible to the state. This [paper](http://www.upu.int/fileadmin/documentsFiles/activities/addressingAssistance/whitePaperAddressingTheWorldEn.pdf) states that is not actualy correct but we can that four billion people are excluded from the rule of law, and that one of the reasons is a lack of proper addressing.
+The United Nations estimates that 4 billion people lack a reliable way to address their homes. They struggle to open bank accounts, register a birth or access electricity or water supplies, becoming invisible to the state. This [paper](http://www.upu.int/fileadmin/documentsFiles/activities/addressingAssistance/whitePaperAddressingTheWorldEn.pdf) states that four billion people are excluded from the rule of law, and that one of the reasons is a lack of proper addressing.
 
-The **Universal Address** goal is "addressing the world", so we would love to provide an *universal address (henceforth UA)* for everyone in the world. We also want a easy way to know what is my UA and how to locate an UA on a map. To acomplish all our objectives, we chose a very popular and easy to use Facebook tool, the [Facebook Messenger](). We created a Chat Bot that allows you to create an UA based on some location and also translating UA to geolocations on a map. It seems cool, right? Let's get continue and we will provide further information about our project :)
+The **Universal Address** goal is "addressing the world", so we would love to provide an *universal address (henceforth UA)* for everyone in the world. We also love to provide super easy way to generate UA and resolve loation on a map from UA. To acomplish all our objectives, we chose a [Facebook Messenger](https://www.messenger.com/) which is very popular and easy to use. We created a Chat Bot that allows user to create their own UA based on their location and also converting UA to geolocation. It seems cool, right? Let's get continue and we will give further information about our project :)
 
 ## Value proposition
 
-Maybe you are wondering: *"What's the value proposition of this project? If I am in a situation that I don't have an address I can share my gps location"*. Well you can share your location whereas the applicaction has the feature to share it. But let's see some examples.
+Maybe you'll wondering: *"What's the main value of this project? If I'm a person who don't have an address, still I can share my geolocation using GPS"*. Well, you can share your geolocation, but it's hard to recognize and remember. The application even has the feature to share UA. Let's see some examples.
 
-Let's suppose the followings situations and we are going to say how our iniciative is trying to solve every case:
-* Mail deliveries (snail mail, supplying packages) by overland transport: let's suppose here that we have printed papers with instructions for the truck driver to ship packages. Many people, for example in Africa, usually don't have a real address, but we can use an UA. We know that the drivers need the exact location, so it is possible to use our application to know where is the UA located 
-* Applying for a job / Open a bank account: in many countries (Argentina for example), you must have an address to apply for a job or open a back account. So with our project, everyone who do not have an address will be able to have a unique address and in that way apply for a job or open a bank account.
+Let's suppose the following situations, and then we are going to say how we solves each case:
+* **Mail deliveries** (e.g. snail mail, supplying packages): Let's suppose that we have printed papers with instructions for the delivery man to ship some packages. Many people, especially living in backwoods, usually don't have an address. In this case, they can generate UA. The UA is based on geolocation, so the delivery man can know the exact location.
+* **Applying for a job / Open a bank account**: In many countries (Argentina for example), you must have an valid address to apply for a job or open a back account. With UA, everyone who don't have an address will be able have a unique address. In this way, they can apply for a job or open a back account.
 
 ## What it does
 
-As we were saying, our goal is *"addressing the world"*. It is definitely a hard work, but we wanted to make it simpler using Facebook tools. That's the reason we created a Bot for Facebook Messenger. We introduced a concept called "universal address" (UA) which it means, a way to express a specific locaction with human language (currently only in english). An UA has always the same structure, a word and a number, for example: *Apple 124*. What is really important here, and the key difference between the existing project "[what 3 words](https://what3words.com)" is that we generate an **unique address** per user.
+As we said, our goal is *"addressing the world"*. It was definitely a hard work, but we wanted to make it simpler with Facebook tools. That's the reason we created a Bot for Facebook Messenger. We've introduced a concept called "Universal Address" (UA). It's a way to express a specific locaction with human friendly languages like English. The UA always has the same structure, one word with one number, for example: *apple 124*. The key difference between the existing project "[what 3 words](https://what3words.com)" is that we generate an **unique address** per user.
 
 <img src="https://raw.githubusercontent.com/arielfr/universal-address/master/docs/screens/0_introduce.PNG" width="350">
 
 ### About our Messenger Bot
 
-The bot basically has two features, you can ask for your UA or you can get information about another UA. If you ask for your UA and it is not created yet, the bot will invite you to create one. To use it, all you have to do is open *Facebook Messenger* and search for "Universal Address". Once a conversation is started, you will be able to choose:
+The bot basically has two features. First, you can ask for your UA. Also you can get a geolocation information about any UA. If you ask for your UA and you don't have one yet, the bot will invite you to create one. To use this, all you have to do is just open *Facebook Messenger* and search for "Universal Address". Once a conversation is started, you'll get a quick replies:
 
 * What's my UA?
 * Get UA geolocation
@@ -47,33 +48,31 @@ The bot basically has two features, you can ask for your UA or you can get infor
 
 ## Option: What's my UA?
 
-In case you don't have an UA yet, once you choose this option, you will see a button (Send Location) to share where you living location
+In case you don't have an UA yet, once you choose this option, you will see a button (Send Location) to share your living location.
 
 <img src="https://raw.githubusercontent.com/arielfr/universal-address/master/docs/screens/1_2_generate_ua.PNG" width="350">
 
-You can search for the locaction by address or drag a waypoint on map.
+You can search for the locaction by address or just drag and drop a marker on the map.
 
 <img src="https://raw.githubusercontent.com/arielfr/universal-address/master/docs/screens/1_3_pick_location.PNG" width="350">
 
-And that's it! You already have an UA for your user.
+And that's it! Now you have your own UA.
 
 <img src="https://raw.githubusercontent.com/arielfr/universal-address/master/docs/screens/1_4_get_ua.PNG" width="350">
 
-When you choose "What's my UA?" and you already have an UA, the bot will show you the details of your address
+If you already have an UA, but you cannot remember, just choose "What's my UA?". Then the bot will show your UA again.
 
 <img src="https://raw.githubusercontent.com/arielfr/universal-address/master/docs/screens/2_get_ua_again.PNG" width="350">
 
 ## Option: Get UA geolocation
 
-When the options appear, you can choose the option *Get UA geolocation*. This option allows you to get the UA exact location and the bot will show you that location on a map.
+When the quick replies appear, you can choose the option *Get UA geolocation* to fetch geolocation information about some UAs you have. This allows you to get the exact geolocation of UA. The bot will gives you the map.
 
 <img src="https://raw.githubusercontent.com/arielfr/universal-address/master/docs/screens/3_1_greeting.PNG" width="350">
 
-Just type the UA and bot will provide you an image with the exact location and a link to google maps
+Just type the UA, then bot will provide you an map image with the exact location and a link to google maps.
 
 <img src="https://raw.githubusercontent.com/arielfr/universal-address/master/docs/screens/3_2_get_ua_location.PNG" width="350">
-
-That's it! You have the exact location on a map and a link to google maps
 
 <img src="https://raw.githubusercontent.com/arielfr/universal-address/master/docs/screens/3_3_get_location.PNG" width="350">
 
@@ -81,36 +80,36 @@ That's it! You have the exact location on a map and a link to google maps
 
 ### About our API
 
-We provide a Public API that will allow to empower companies and goverments. How? Our API allows you to search by UA and get the locations. It is useful for companies that send packages like Fedex, DHL, USPS, etc. 
+We also provide a public API that allows to empower companies and goverments. How? Our API allows you to search by UA and get geolocation informations. It's useful for organizations want to send packages like Fedex, DHL, USPS, etc.
 
-You can also get information about how many people is living in a certain area. That is a good tool for goberments to measure the population in their countries.
+You can also get the information about how many people is living in a certain area. This is really needed feature for goverments to measure the population by grid area in their countries.
 
-For further information about our API, [here](https://universal-address.now.sh/docs) is the thechnical information using Swagger
+More information about our API, [here](https://universal-address.now.sh/docs) is the technical information served with Swagger.
 
 ## How we built it
 
-This application was created using **NodeJS**. These are the main packages that we are using:
+This application was created with **NodeJS**. These are the main packages that we are using:
 
 * [Facebook API](https://www.npmjs.com/package/fb)
-* NodeJS
-* MongoDB
-* Google Maps
-* MapQuest
-* Express
+* [NodeJS](https://nodejs.org/)
+* [MongoDB](https://www.mongodb.com/)
+* [Google Maps](https://www.google.com/maps)
+* [MapQuest](https://www.mapquest.com/)
+* [Express](https://expressjs.com/)
 
 ## Challenges we ran into
 
-Thanks to our technical experience, the challenge focused on how to give the best user experience, not just for the point of view of the common user, also taking care about developers using our API.
+Thanks to our technical experience, the challenge focused on how to give the best user experience, not just for the point of view from the common user, also taking care about developers using our API.
 
 ## Accomplishments that we're proud of
 
-Based on our research and the great project [what3words](https://what3words.com/), we are proud of giving a way to solve a global problem.
+Based on our research and the great project [what3words](https://what3words.com/), we are proud of giving a way to solve a global problem related to [SDG 11](https://f82019.devpost.com/details/sdg11).
 
 ## What we learned
 
-Thanks to our multicultural team, we had the opportunity to know other kind of problems which are happening in the world and how to solve them with tech solutions.
+Thanks to our multi-cultural team, we had the opportunity to know other kind of problems which are happening in the world and how to solve them with tech solutions.
 
-## What's next for Universal Address
+## Next steps for Universal Address
 
 Some features we would like to add:
 * Given some location, and considering some distance radius, we could show all the people who have an UA in that radius on a map
@@ -118,7 +117,7 @@ Some features we would like to add:
 
 ## Install
 
-### Application
+### API server
 
 Just clone the repository and type in a console:
 
@@ -152,15 +151,15 @@ npm start-dev
 
 ## Deployment
 
-This application is currently deployed on a Zeit ([now.sh](http://now.sh)). It already have the configurations on `now.json` file.
+This application is currently deployed on a Zeit ([now.sh](http://now.sh)). Configurations are on `now.json` file.
 
-If you want to deploy it, you just need to execute:
+If you want to deploy it, what you need is just execute command following:
 
 ```bash
 now --public -e FB_TOKEN_MESSENGER="XXX" -e FB_TOKEN_PAGE="XXX" -e MONGO_USER="XXXX" -e MONGO_PASSWORD="XXXX" -e MAPQUEST_KEY="XXXX" && now alias
 ```
 
-You can find it currently here:
+Currently you can find it here:
 
 [https://universal-address.now.sh](https://universal-address.now.sh)
 
@@ -172,7 +171,7 @@ We are currently using mLab to host the database. mLab is a free solution.
 
 ## License
 
-Released under the terms of the MIT license.
+Released under the terms of the [MIT license](LICENSE.md).
 
 # References
 
