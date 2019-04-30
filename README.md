@@ -34,7 +34,7 @@ Let's suppose the following situations, and then we are going to say how we solv
 
 As we said, our goal is *"addressing the world"*. It was definitely a hard work, but we wanted to make it simpler with Facebook tools. That's the reason we created a Bot for Facebook Messenger. We've introduced a concept called "Universal Address" (UA). It's a way to express a specific locaction with human friendly languages like English. The UA always has the same structure, one word with one number, for example: *apple 124*. The key difference between the existing project "[what 3 words](https://what3words.com)" is that we generate an **unique address** per user.
 
-<img src="https://raw.githubusercontent.com/arielfr/universal-address/master/docs/screens/0_introduce.PNG" width="350">
+![Introduce](docs/screenshots/0_introduce.png)
 
 ### About our Messenger Bot
 
@@ -44,39 +44,39 @@ The bot basically has two features. First, you can ask for your UA. Also you can
 * Get UA geolocation
 * Help (it will explain you how to use the bot)
 
-<img src="https://raw.githubusercontent.com/arielfr/universal-address/master/docs/screens/1_1_greeting.PNG" width="350">
+![Greeting](docs/screenshots/1_1_greeting.png)
 
 ## Option: What's my UA?
 
 In case you don't have an UA yet, once you choose this option, you will see a button (Send Location) to share your living location.
 
-<img src="https://raw.githubusercontent.com/arielfr/universal-address/master/docs/screens/1_2_generate_ua.PNG" width="350">
+![Generate UA](docs/screenshots/1_2_generate_ua.png)
 
 You can search for the locaction by address or just drag and drop a marker on the map.
 
-<img src="https://raw.githubusercontent.com/arielfr/universal-address/master/docs/screens/1_3_pick_location.PNG" width="350">
+![Pick Location](docs/screenshots/1_3_pick_location.png)
 
 And that's it! Now you have your own UA.
 
-<img src="https://raw.githubusercontent.com/arielfr/universal-address/master/docs/screens/1_4_get_ua.PNG" width="350">
+![Get UA](docs/screenshots/1_4_get_ua.png)
 
 If you already have an UA, but you cannot remember, just choose "What's my UA?". Then the bot will show your UA again.
 
-<img src="https://raw.githubusercontent.com/arielfr/universal-address/master/docs/screens/2_get_ua_again.PNG" width="350">
+![Get UA again](docs/screenshots/2_get_ua_again.png)
 
 ## Option: Get UA geolocation
 
 When the quick replies appear, you can choose the option *Get UA geolocation* to fetch geolocation information about some UAs you have. This allows you to get the exact geolocation of UA. The bot will gives you the map.
 
-<img src="https://raw.githubusercontent.com/arielfr/universal-address/master/docs/screens/3_1_greeting.PNG" width="350">
+![Greeting](docs/screenshots/3_1_greeting.png)
 
 Just type the UA, then bot will provide you an map image with the exact location and a link to google maps.
 
-<img src="https://raw.githubusercontent.com/arielfr/universal-address/master/docs/screens/3_2_get_ua_location.PNG" width="350">
+![Get UA location](docs/screenshots/3_2_get_ua_location.png)
 
-<img src="https://raw.githubusercontent.com/arielfr/universal-address/master/docs/screens/3_3_get_location.PNG" width="350">
+![Get location](docs/screenshots/3_3_get_location.png)
 
-<img src="https://raw.githubusercontent.com/arielfr/universal-address/master/docs/screens/3_4_google_map_link.PNG" width="350">
+![Google map link](docs/screenshots/3_4_google_map_link.png)
 
 ### About our API
 
