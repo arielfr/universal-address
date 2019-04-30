@@ -42,7 +42,6 @@ The bot basically has two features: ask for your UA and get the UA location. If 
 
 * What's my UA?
 * Get UA geolocation
-* Help (it will explain you how to use the bot)
 
 ![Greeting](https://raw.githubusercontent.com/arielfr/universal-address/master/docs/screenshots/1_1_greeting.png)
 
