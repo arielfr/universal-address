@@ -81,6 +81,12 @@ That's it! You have the exact location on a map and a link to google maps
 
 ### About our API
 
+We provide a Public API that will allow to empower companies and goverments. How? Our API allows you to search by UA and get the locations. It is useful for companies that send packages like Fedex, DHL, USPS, etc. 
+
+You can also get information about how many people is living in a certain area. That is a good tool for goberments to measure the population in their countries.
+
+For further information about our API, [here](https://universal-address.now.sh/docs) is the thechnical information using Swagger
+
 ## How we built it
 
 This application was created using **NodeJS**. These are the main packages that we are using:
