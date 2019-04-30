@@ -15,7 +15,7 @@ Giving solutions to addressing the world
 
 ## Inspiration
 
-The United Nation estimates that 4 billion people lack a reliable way to address their homes. They struggle to open bank accounts, register a birth or access electricity or water supplies, becoming invisible to the state. This [paper](http://www.upu.int/fileadmin/documentsFiles/activities/addressingAssistance/whitePaperAddressingTheWorldEn.pdf) states that is not actualy correct but we can that four billion people are excluded from the rule of law, and that one of the reasons is a lack of proper addressing. 
+The United Nation estimates that 4 billion people lack a reliable way to address their homes. They struggle to open bank accounts, register a birth or access electricity or water supplies, becoming invisible to the state. This [paper](http://www.upu.int/fileadmin/documentsFiles/activities/addressingAssistance/whitePaperAddressingTheWorldEn.pdf) states that is not actualy correct but we can that four billion people are excluded from the rule of law, and that one of the reasons is a lack of proper addressing.
 
 The **Universal Address** goal is "addressing the world", so we would love to provide an *universal address (henceforth UA)* for everyone in the world. We also want a easy way to know what is my UA and how to locate an UA on a map. To acomplish all our objectives, we chose a very popular and easy to use Facebook tool, the [Facebook Messenger](). We created a Chat Bot that allows you to create an UA based on some location and also translating UA to geolocations on a map. It seems cool, right? Let's get continue and we will provide further information about our project :)
 
@@ -25,12 +25,13 @@ Maybe you are wondering: *"What's the value proposition of this project? If I am
 
 Let's suppose the followings situations and we are going to say how our iniciative is trying to solve every case:
 * Mail deliveries (snail mail, supplying packages) by overland transport: let's suppose here that we have printed papers with instructions for the truck driver to ship packages. Many people, for example in Africa, usually don't have a real address, but we can use an UA. We know that the drivers need the exact location, so it is possible to use our application to know where is the UA located 
-* Applying for a job: in many countries (Argentina for example), you must have an address to apply for a job. So with our project, everyone who do not have an address will be able to have a unique address and in that way, they will be able to apply for any job.
-* Open a bank account: 
+* Applying for a job / Open a bank account: in many countries (Argentina for example), you must have an address to apply for a job or open a back account. So with our project, everyone who do not have an address will be able to have a unique address and in that way apply for a job or open a bank account.
 
 ## What it does
 
 As we were saying, our goal is *"addressing the world"*. It is definitely a hard work, but we wanted to make it simpler using Facebook tools. That's the reason we created a Bot for Facebook Messenger. We introduced a concept called "universal address" (UA) which it means, a way to express a specific locaction with human language (currently only in english). An UA has always the same structure, a word and a number, for example: *Apple 124*. What is really important here, and the key difference between the existing project "[what 3 words](https://what3words.com)" is that we generate an **unique address** per user.
+
+<img src="https://raw.githubusercontent.com/arielfr/universal-address/docs/docs/screens/0_introduce.PNG" width="350">
 
 The bot basically has two features, you can ask for your UA or you can get information about another UA. If you ask for your UA and it is not created yet, the bot will invite you to create one. To use it, all you have to do is open *Facebook Messenger* and search for "Universal Address". Once a conversation is started, you will be able to choose:
 
@@ -38,17 +39,41 @@ The bot basically has two features, you can ask for your UA or you can get infor
 * Get UA geolocation
 * Help (it will explain you how to use the bot)
 
+<img src="https://raw.githubusercontent.com/arielfr/universal-address/docs/docs/screens/1_1_greeting.PNG" width="350">
+
 ## Option: What's my UA?
 
 In case you don't have an UA yet, once you choose this option, you will see a button (Send Location) to share where you living location
 
-![Image showing creating UA feature]()
+<img src="https://raw.githubusercontent.com/arielfr/universal-address/docs/docs/screens/1_2_generate_ua.PNG" width="350">
 
+You can search for the locaction by address or drag a waypoint on map.
 
+<img src="https://raw.githubusercontent.com/arielfr/universal-address/docs/docs/screens/1_3_pick_location.PNG" width="350">
+
+And that's it! You already have an UA for your user.
+
+<img src="https://raw.githubusercontent.com/arielfr/universal-address/docs/docs/screens/1_4_get_ua.PNG" width="350">
+
+When you choose "What's my UA?" and you already have an UA, the bot will show you the details of your address
+
+<img src="https://raw.githubusercontent.com/arielfr/universal-address/docs/docs/screens/2_get_ua_again.PNG" width="350">
 
 ## Option: Get UA geolocation
 
-TBD
+When the options appear, you can choose the option *Get UA geolocation*. This option allows you to get the UA exact location and the bot will show you that location on a map.
+
+<img src="https://raw.githubusercontent.com/arielfr/universal-address/docs/docs/screens/3_1_greeting.PNG" width="350">
+
+Just type the UA and bot will provide you an image with the exact location and a link to google maps
+
+<img src="https://raw.githubusercontent.com/arielfr/universal-address/docs/docs/screens/3_2_get_ua_location.PNG" width="350">
+
+That's it! You have the exact location on a map and a link to google maps
+
+<img src="https://raw.githubusercontent.com/arielfr/universal-address/docs/docs/screens/3_3_get_location.PNG" width="350">
+
+<img src="https://raw.githubusercontent.com/arielfr/universal-address/docs/docs/screens/3_4_google_map_link.PNG" width="350">
 
 ## How we built it
 
@@ -137,7 +162,12 @@ We are currently using mLab to host the database. mLab is a free solution.
 
 Released under the terms of the MIT license.
 
-# About
+# References
+
+1. [Addressing the world paper](http://www.upu.int/fileadmin/documentsFiles/activities/addressingAssistance/whitePaperAddressingTheWorldEn.pdf), Universal Postal Union
+2. [What 3 Words project](https://what3words.com/about)
+
+# About Us
 
 - [Ariel Rey](https://github.com/arielfr/)
 - [Horacio Lopez](https://github.com/hdlopez/)
