@@ -32,7 +32,7 @@ Let's suppose the following situations, and then we are going to say how we solv
 
 ## What it does
 
-As we said, our goal is *"addressing the world"*. It was definitely a hard work, but we wanted to make it simpler with Facebook tools. That's the reason we created a Bot for Facebook Messenger. We've introduced a concept called "Universal Address" (UA). It's a way to express a specific locaction with human friendly languages like English. The UA always has the same structure, one word with one number, for example: *apple 124*. The key difference between the existing project "[what 3 words](https://what3words.com)" is that we generate an **unique address** per user.
+As we said, our goal is *"addressing the world"*. It was definitely a hard work, but we wanted to make it simpler with Facebook tools. That's the reason we created a Bot for Facebook Messenger. We've introduced a concept called "Universal Address" (UA). It's a way to express a specific locaction with human friendly languages like English. The UA always has the same structure, one word with one number, for example: *apple 124*. The key difference between this project and the existing project "[what 3 words](https://what3words.com)" is that we have the feagture to generate an **unique address** per user.
 
 ![Introduce](https://raw.githubusercontent.com/arielfr/universal-address/master/docs/screenshots/0_introduce.png)
 
